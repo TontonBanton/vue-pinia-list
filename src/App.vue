@@ -9,8 +9,7 @@
     <!-- Task Loop -->
     <div class="task-list">
       <div v-for="task in taskStore.tasks">
-        <TaskDetails />
-        <p>{{ task.tittle }}</p>
+        <TaskDetails :task="task" />
       </div>
     </div>
 
