@@ -6,9 +6,27 @@
       <h1>{{ taskStore.name }} </h1>
     </header>
 
+    <!-- New Form -->
+    <div class="new-task-form">
+      <TaskForm />
+    </div>
+
+    <!-- Filter Buttons -->
+    <nav class="filter">
+      <button @click="filter = 'all'">All Tasks</button>
+      <button @click="filter = 'favs'">Fav Tasks</button>
+    </nav>
+
     <!-- Task Loop -->
-    <div class="task-list">
+    <div v-if="filter === 'all'" class="task-list">
+      <p>Total Tasks = {{ taskStore.totalCount }} </p>
       <div v-for="task in taskStore.tasks">
+        <TaskDetails :task="task" />
+      </div>
+      </div>
+      <div v-if="filter === 'favs'" class="task-list">
+        <p>Fav Tasks = {{ taskStore.favCount }} </p>
+      <div v-for="task in taskStore.favs">
         <TaskDetails :task="task" />
       </div>
     </div>
@@ -17,17 +35,21 @@
 </template>
 
 <script>
+  import { ref } from 'vue'
   import TaskDetails from './components/TaskDetails.vue';
+  import TaskForm from './components/TaskForm.vue';
   import { useTaskStore } from './store/TaskStore';
 
   export default {
-    components:
-      { TaskDetails },
+    components: {TaskDetails, TaskForm },
 
     setup () {
+      const filter = ref('all')
       const taskStore = useTaskStore()
-      return { taskStore }
+
+      return { taskStore, filter }
     }
+
   }
 
 </script>
