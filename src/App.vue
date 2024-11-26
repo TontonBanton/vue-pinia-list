@@ -11,7 +11,6 @@
       <TaskForm />
     </div>
 
-
     <!-- Loading -->
     <div class="loading" v-if="taskStore.isLoading">
       Loading Tasks......
