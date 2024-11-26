@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "List Task Number 1",
+      "isFav": false
+    },
+    {
+      "id": 2,
+      "title": "List Task Number 2",
+      "isFav": true
+    },
+    {
+      "id": 3,
+      "title": "List Task Number 3",
+      "isFav": false
+    },
+    {
+      "id": 4,
+      "title": "List Task Number 4",
+      "isFav": true
+    }
+  ]
+}

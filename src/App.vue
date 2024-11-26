@@ -6,9 +6,15 @@
       <h1>{{ taskStore.name }} </h1>
     </header>
 
-    <!-- New Form -->
+    <!-- New Form Component Call-->
     <div class="new-task-form">
       <TaskForm />
+    </div>
+
+
+    <!-- Loading -->
+    <div class="loading" v-if="taskStore.isLoading">
+      Loading Tasks......
     </div>
 
     <!-- Filter Buttons -->
@@ -46,6 +52,9 @@
     setup () {
       const filter = ref('all')
       const taskStore = useTaskStore()
+
+      //Run Store getTask
+      taskStore.getTasks()
 
       return { taskStore, filter }
     }
